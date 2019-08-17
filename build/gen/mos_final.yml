@@ -65,9 +65,9 @@ sources:
 - /data/fwbuild-volumes/2.15.0/apps/app1/esp8266/build_contexts/build_ctx_785108102/deps/rpc-service-fs/src/mgos_service_filesystem.c
 - /data/fwbuild-volumes/2.15.0/apps/app1/esp8266/build_contexts/build_ctx_785108102/deps/rpc-service-gpio/src/mgos_gpio_service.c
 - /data/fwbuild-volumes/2.15.0/apps/app1/esp8266/build_contexts/build_ctx_785108102/deps/rpc-service-i2c/src/mgos_i2c_service.c
-- /data/fwbuild-volumes/2.15.0/apps/app1/esp8266/build_contexts/build_ctx_785108102/deps/wifi/src/mgos_wifi.c
-- /data/fwbuild-volumes/2.15.0/apps/app1/esp8266/build_contexts/build_ctx_785108102/deps/wifi/src/mjs_wifi.c
-- /data/fwbuild-volumes/2.15.0/apps/app1/esp8266/build_contexts/build_ctx_785108102/deps/wifi/src/esp8266/esp_wifi.c
+- /data/fwbuild-volumes/2.15.0/apps/app1/esp8266/build_contexts/build_ctx_785108102/deps/mongooseOS-custombuild-aws/libs/wifi/src/mgos_wifi.c
+- /data/fwbuild-volumes/2.15.0/apps/app1/esp8266/build_contexts/build_ctx_785108102/deps/mongooseOS-custombuild-aws/libs/wifi/src/mjs_wifi.c
+- /data/fwbuild-volumes/2.15.0/apps/app1/esp8266/build_contexts/build_ctx_785108102/deps/mongooseOS-custombuild-aws/libs/wifi/src/esp8266/esp_wifi.c
 - /data/fwbuild-volumes/2.15.0/apps/app1/esp8266/build_contexts/build_ctx_785108102/deps/rpc-service-wifi/src/mgos_rpc_service_wifi.c
 - /data/fwbuild-volumes/2.15.0/apps/app1/esp8266/build_contexts/build_ctx_785108102/deps/rpc-uart/src/mgos_rpc_channel_uart.c
 - /data/fwbuild-volumes/2.15.0/apps/app1/esp8266/build_contexts/build_ctx_785108102/deps/sntp/src/mgos_sntp.c
@@ -114,8 +114,8 @@ includes:
 - /data/fwbuild-volumes/2.15.0/apps/app1/esp8266/build_contexts/build_ctx_785108102/deps/rpc-service-gpio/include
 - /data/fwbuild-volumes/2.15.0/apps/app1/esp8266/build_contexts/build_ctx_785108102/deps/rpc-service-i2c/include
 - /data/fwbuild-volumes/2.15.0/apps/app1/esp8266/build_contexts/build_ctx_785108102/deps/rpc-service-ota/include
-- /data/fwbuild-volumes/2.15.0/apps/app1/esp8266/build_contexts/build_ctx_785108102/deps/wifi/include
-- /data/fwbuild-volumes/2.15.0/apps/app1/esp8266/build_contexts/build_ctx_785108102/deps/wifi/include/esp8266
+- /data/fwbuild-volumes/2.15.0/apps/app1/esp8266/build_contexts/build_ctx_785108102/deps/mongooseOS-custombuild-aws/libs/wifi/include
+- /data/fwbuild-volumes/2.15.0/apps/app1/esp8266/build_contexts/build_ctx_785108102/deps/mongooseOS-custombuild-aws/libs/wifi/include/esp8266
 - /data/fwbuild-volumes/2.15.0/apps/app1/esp8266/build_contexts/build_ctx_785108102/deps/rpc-uart/include
 - /data/fwbuild-volumes/2.15.0/apps/app1/esp8266/build_contexts/build_ctx_785108102/deps/spi/include
 - /data/fwbuild-volumes/2.15.0/apps/app1/esp8266/build_contexts/build_ctx_785108102/deps/vfs-dev-spi-flash/include
@@ -825,7 +825,7 @@ config_schema:
   - title: WiFi Access Point Config
 - - wifi.ap.enable
   - b
-  - true
+  - false
   - title: Enable
 - - wifi.ap.ssid
   - s
@@ -886,12 +886,15 @@ config_schema:
   - title: WiFi Station Config
 - - wifi.sta.enable
   - b
+  - true
   - title: Connect to existing WiFi
 - - wifi.sta.ssid
   - s
+  - abcdef
   - title: SSID
 - - wifi.sta.pass
   - s
+  - "12341234"
   - title: Password
     type: password
 - - wifi.sta.user
@@ -1066,14 +1069,6 @@ config_schema:
   - iot.eclipse.org:1883
 - - i2c.enable
   - true
-- - wifi.ap.enable
-  - false
-- - wifi.sta.enable
-  - true
-- - wifi.sta.ssid
-  - abcdef
-- - wifi.sta.pass
-  - "12341234"
 build_vars:
   BOARD: ""
   MGOS: "1"
@@ -1536,16 +1531,16 @@ libs_handled:
   - ota-http-client
   - rpc-common
 - lib:
-    origin: https://github.com/mongoose-os-libs/wifi
-    location: https://github.com/mongoose-os-libs/wifi
+    origin: https://github.com/nevilneo010/mongooseOS-custombuild-aws/tree/master/libs/wifi
+    location: https://github.com/nevilneo010/mongooseOS-custombuild-aws/tree/master/libs/wifi
     name: wifi
-  path: /data/fwbuild-volumes/2.15.0/apps/app1/esp8266/build_contexts/build_ctx_785108102/deps/wifi
+  path: /data/fwbuild-volumes/2.15.0/apps/app1/esp8266/build_contexts/build_ctx_785108102/deps/mongooseOS-custombuild-aws/libs/wifi
   init_deps:
   - core
   sources:
-  - /data/fwbuild-volumes/2.15.0/apps/app1/esp8266/build_contexts/build_ctx_785108102/deps/wifi/src/mgos_wifi.c
-  - /data/fwbuild-volumes/2.15.0/apps/app1/esp8266/build_contexts/build_ctx_785108102/deps/wifi/src/mjs_wifi.c
-  - /data/fwbuild-volumes/2.15.0/apps/app1/esp8266/build_contexts/build_ctx_785108102/deps/wifi/src/esp8266/esp_wifi.c
+  - /data/fwbuild-volumes/2.15.0/apps/app1/esp8266/build_contexts/build_ctx_785108102/deps/mongooseOS-custombuild-aws/libs/wifi/src/mgos_wifi.c
+  - /data/fwbuild-volumes/2.15.0/apps/app1/esp8266/build_contexts/build_ctx_785108102/deps/mongooseOS-custombuild-aws/libs/wifi/src/mjs_wifi.c
+  - /data/fwbuild-volumes/2.15.0/apps/app1/esp8266/build_contexts/build_ctx_785108102/deps/mongooseOS-custombuild-aws/libs/wifi/src/esp8266/esp_wifi.c
 - lib:
     origin: https://github.com/mongoose-os-libs/rpc-service-wifi
     location: https://github.com/mongoose-os-libs/rpc-service-wifi

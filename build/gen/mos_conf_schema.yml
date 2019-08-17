@@ -690,7 +690,7 @@
   - title: WiFi Access Point Config
 - - wifi.ap.enable
   - b
-  - true
+  - false
   - title: Enable
 - - wifi.ap.ssid
   - s
@@ -751,12 +751,15 @@
   - title: WiFi Station Config
 - - wifi.sta.enable
   - b
+  - true
   - title: Connect to existing WiFi
 - - wifi.sta.ssid
   - s
+  - abcdef
   - title: SSID
 - - wifi.sta.pass
   - s
+  - "12341234"
   - title: Password
     type: password
 - - wifi.sta.user
@@ -931,11 +934,3 @@
   - iot.eclipse.org:1883
 - - i2c.enable
   - true
-- - wifi.ap.enable
-  - false
-- - wifi.sta.enable
-  - true
-- - wifi.sta.ssid
-  - abcdef
-- - wifi.sta.pass
-  - "12341234"

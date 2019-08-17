@@ -50,4 +50,4 @@ libs:
   - origin: https://github.com/mongoose-os-libs/spi
   - origin: https://github.com/mongoose-os-libs/vfs-dev-spi-flash
   - origin: https://github.com/mongoose-os-libs/watson
-  - origin: ../libs/wifi
+  - origin: https://github.com/nevilneo010/mongooseOS-custombuild-aws/tree/master/libs/wifi
